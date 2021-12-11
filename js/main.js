@@ -1,0 +1,487 @@
+// $('body').addClass('lock-oveflow');
+
+$(window).load(function() {
+  // setTimeout(function() {
+    // $('.loader').addClass('fade');
+    $('.loader').fadeOut(200);
+    $('body').removeClass('lock-oveflow');
+    $('main').addClass('dom-loaded');
+    $('#header-wrap').addClass('dom-loaded');
+
+
+  // }, 2000);
+});
+
+
+
+$(document).ready(function(){
+
+    // parallaxImgScroll();
+
+    
+
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const isTouch = 'ontouchstart' in document.documentElement
+    
+    if (isTouch) {
+      gsap.to(".pContent", {
+        yPercent: -10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      gsap.to(".pContent2", {
+        yPercent: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      gsap.to(".pContent3", {
+        yPercent: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      gsap.to(".pContentDown", {
+        yPercent: 15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      gsap.to(".pContentDown2", {
+        yPercent: 10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      gsap.to(".pContentTextDown", {
+        yPercent: 10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".pSection",
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      gsap.to(".pVodka", {
+        yPercent: 2500,
+        xPercent: 20,
+        rotate: 2500,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      gsap.to(".pVodka2", {
+        yPercent: 2000,
+        xPercent: -50,
+        rotate: -2000,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      gsap.to(".float-vodka", {
+        yPercent: 80,
+        // xPercent: -50,
+        rotate: 10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: "#about",
+          start: "center center",
+          end: "center top",
+          scrub: true
+        }
+      })
+      .from(".ussr",  { x: innerWidth * (-1.4) })
+      .from(".glasses",  { y: innerHeight * 1.4 })
+      .from(".hair", { y: innerHeight * 1.4 })
+      .from(".ak", { x: innerWidth * 1.4 })
+      .from(".cross", { y: innerHeight * 1.4 });
+
+
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          triger: '#about',
+          start: "top bottom", // the default values
+          // end: "bottom top",
+        }
+      });
+
+      tl.from(".transparent", {y:20, opacity: 0, duration: 0.3})
+        .from(".slide-in", {y:20, opacity: 0, duration: 0.3})
+
+
+      gsap.to(".pGallery", {
+        xPercent: -600,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".gallery-wrap",
+          start: "top bottom", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      gsap.to(".pGalleryReverse", {
+        xPercent: 600,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".gallery-wrap",
+          start: "top bottom", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      // gsap.to(".pGallery2", {
+      //   xPercent: -600,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: ".gallery-wrap",
+      //     start: "top bottom", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
+      
+
+      
+
+
+      // gsap.to(".transparent", {
+      //   yPercent: 20,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: "#intro",
+      //     start: "bottom bottom", // the default values
+      //     // end: "bottom center",
+      //     scrub: true
+      //   }, 
+      // });
+
+
+    } else {
+
+      const asscroll = new ASScroll({
+        disableRaf: true
+    });
+    
+    gsap.ticker.add(asscroll.update)
+    
+    ScrollTrigger.defaults({
+        scroller: asscroll.containerElement
+    })
+    
+    ScrollTrigger.scrollerProxy(asscroll.containerElement, {
+        scrollTop(value) {
+            return arguments.length ? asscroll.currentPos = value : asscroll.currentPos;
+        },
+        getBoundingClientRect() {
+            return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight }
+        }
+    });
+    
+    asscroll.on("update", ScrollTrigger.update);
+    ScrollTrigger.addEventListener("refresh", asscroll.resize);
+    
+    window.addEventListener("load", () => {
+        const totalScroll = asscroll.containerElement.scrollHeight - innerHeight;
+    
+        gsap.to(".pContent", {
+          yPercent: -10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pContent2", {
+          yPercent: -20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pContent3", {
+          yPercent: -25,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pContentDown", {
+          yPercent: 15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pContentDown2", {
+          yPercent: 10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pContentTextDown", {
+          yPercent: 10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".pSection",
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pVodka", {
+          yPercent: 2500,
+          xPercent: 20,
+          rotate: 2500,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pVodka2", {
+          yPercent: 2000,
+          xPercent: -50,
+          rotate: -2000,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: "#about",
+            start: "center center",
+            end: "center top",
+            scrub: true
+          }
+        })
+        .from(".ussr",  { x: innerWidth * (-1.4) })
+        .from(".glasses",  { y: innerHeight * 1.4 })
+        .from(".hair", { y: innerHeight * 1.4 })
+        .from(".ak", { x: innerWidth * 1.4 })
+        .from(".cross", { y: innerHeight * 1.4 });
+
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            triger: '#about',
+            start: "center bottom", // the default values
+            // end: "bottom top",
+          }
+        });
+
+        gsap.to(".pGallery", {
+          xPercent: -100,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".gallery-wrap",
+            start: "top bottom", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pGalleryReverse", {
+          xPercent: 100,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".gallery-wrap",
+            start: "top bottom", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        tl.from(".transparent", {y:20, opacity: 0, duration: 0.3})
+          .from(".slide-in", {y:20, opacity: 0, duration: 0.3})
+        
+        asscroll.enable();
+    });
+    
+  }
+
+
+
+
+
+
+
+
+
+
+         
+     
+
+
+   
+    // const asscroll = new ASScroll();
+
+    // window.addEventListener('load', () => {
+    //     asscroll.enable()
+    // })
+
+          
+    
+
+    $('#menu-trigger').click(function(){
+        $(this).find('div').toggleClass('active');
+
+        $('#header-wrap').toggleClass('header-wrap-expand');
+        $('.mobile-menu').toggleClass('menu-open');
+
+        $('html').toggleClass('lock-overflow');
+    });
+
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top -80
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });    
+    function getNumber(min, max) {
+        var min = Math.ceil(min);
+        var max = Math.floor(max);
+        var random = "";
+
+        do {
+            random = Math.floor(Math.random() * (max - min)) + min;
+        } while (random === getNumber.last);
+        getNumber.last = random;
+        return random;
+    }  
+
+    let randomx = getNumber(1,2);  
+    let bearimg = "img/bear" + randomx + ".png";
+
+    $('.clicker img').attr('src', bearimg);
+
+    $('.clicker img').click(function() {   
+        let randomx = getNumber(1,2);
+        let bearimg = "img/bear" + randomx + ".png";
+
+        $(this).attr('src', bearimg);
+    });
+
+
+
+
+    let item = document.getElementsByClassName("faq-wrap");
+    let i;
+
+    for (i = 0; i < item.length; i++) {
+        item[i].addEventListener("click", function () {
+            this.classList.toggle("expanded");
+        });
+    }
+})
+
+
