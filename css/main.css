@@ -25,7 +25,7 @@ html {
     font-size: 1em;
     line-height: 1.4;
 	/* background-color: #FFF; */
-  background-color: #1f1827;
+  background-color: #c1bcd5;
   font-family: 'Goldman-Regular', sans-serif;
 }
 
@@ -351,6 +351,7 @@ p {
   z-index: 20;
   background-color: #65506a3d;
   backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   width: 100%;
@@ -618,6 +619,7 @@ ul {
   left: 30px;
   top: 35%;
   filter: contrast(0.5);
+  -webkit-filter: contrast(0.5);
   transform: rotate(-15deg);
 }
 
@@ -732,6 +734,7 @@ background-image: url('back3.png');
 .text-box {
   border: 4px solid #ffde3a;
   backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   padding: 10px 20px;
 }
 
@@ -896,6 +899,7 @@ background-image: url('back3.png');
   position: fixed;
   z-index: 30;
   filter: blur(300px);
+  -webkit-filter: blur(300px);
   transition: filter 0.4s cubic-bezier(0.65, 0.05, 0.36, 1), opacity 1s ease, visibility 0s 0.4s;
   visibility: hidden;
 }
@@ -916,6 +920,7 @@ background-image: url('back3.png');
   transition: filter 0.4s cubic-bezier(0.65, 0.05, 0.36, 1), opacity 0.4s ease;
   height: 100vh;
   filter: blur(0px);
+  -webkit-filter: blur(0px);
   opacity: 1;
   visibility: visible;
 }
@@ -1024,6 +1029,7 @@ main {
 	top: 50%;
 	margin-top: -1em;
   filter: blur(0px);
+  -webkit-filter: blur(0px);
   opacity: 1;
   transition: all 0.2s ease;
 }
@@ -1031,6 +1037,7 @@ main {
 .fade {
   opacity: 0;
   filter: blur(100px);
+  -webkit-filter: blur(100px);
 }
 
 .loader_letter {
