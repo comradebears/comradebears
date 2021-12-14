@@ -1,15 +1,14 @@
 // $('body').addClass('lock-oveflow');
 
 $(window).load(function() {
-  // setTimeout(function() {
+  setTimeout(function() {
     // $('.loader').addClass('fade');
     $('.loader').fadeOut(200);
     $('body').removeClass('lock-oveflow');
     $('main').addClass('dom-loaded');
     $('#header-wrap').addClass('dom-loaded');
 
-
-  // }, 2000);
+  }, 3000);
 });
 
 
@@ -18,6 +17,9 @@ $(document).ready(function(){
 
     // parallaxImgScroll();
 
+    $('.mint').click(function(){
+      $(this).find('.btn').text('Date TBA');
+    });
     
 
     gsap.registerPlugin(ScrollTrigger);
@@ -118,8 +120,8 @@ $(document).ready(function(){
         }, 
       });
 
-      gsap.to(".float-vodka", {
-        yPercent: 80,
+      gsap.to(".hover-item1", {
+        yPercent: 25,
         // xPercent: -50,
         rotate: 10,
         ease: "none",
@@ -131,19 +133,46 @@ $(document).ready(function(){
         }, 
       });
 
+      gsap.to(".hover-item2", {
+        yPercent: 50,
+        // xPercent: -50,
+        rotate: 10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#gallery",
+          start: "top bottom", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
+
+      // gsap.to(".hover-item3", {
+      //   yPercent: 350,
+      //   // xPercent: -50,
+      //   rotate: 900,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: ".roadmap-wrap",
+      //     start: "top center", // the default values
+      //     end: "bottom center",
+      //     scrub: true
+      //   }, 
+      // });
+
       gsap.timeline({
         scrollTrigger: {
-          trigger: "#about",
-          start: "center center",
-          end: "center top",
+          trigger: "#about .img",
+          start: "center bottom",
+          end: "bottom center",
           scrub: true
         }
       })
-      .from(".ussr",  { x: innerWidth * (-1.4) })
-      .from(".glasses",  { y: innerHeight * 1.4 })
-      .from(".hair", { y: innerHeight * 1.4 })
-      .from(".ak", { x: innerWidth * 1.4 })
-      .from(".cross", { y: innerHeight * 1.4 });
+      // .from(".ussr",  { opacity: 0 })
+      .from(".ussr",  { x: innerWidth * (-0.5), ease: "expo" })
+      .from(".glasses",  { y: innerHeight * 0.5, ease: "expo" })
+      .from(".hair", { y: innerHeight * (-0.5), ease: "expo" })
+      .from(".ak", { x: innerWidth * 0.5, ease: "expo" })
+      .from(".cross", { y: innerHeight * 0.5, ease: "expo" });
 
 
       let tl = gsap.timeline({
@@ -154,12 +183,12 @@ $(document).ready(function(){
         }
       });
 
-      tl.from(".transparent", {y:20, opacity: 0, duration: 0.3})
-        .from(".slide-in", {y:20, opacity: 0, duration: 0.3})
+      // tl.from(".transparent", {y:20, opacity: 0, duration: 0.3})
+      //   .from(".slide-in", {y:20, opacity: 0, duration: 0.3})
 
 
       gsap.to(".pGallery", {
-        xPercent: -600,
+        xPercent: -400,
         ease: "none",
         scrollTrigger: {
           trigger: ".gallery-wrap",
@@ -170,7 +199,7 @@ $(document).ready(function(){
       });
 
       gsap.to(".pGalleryReverse", {
-        xPercent: 600,
+        xPercent: 400,
         ease: "none",
         scrollTrigger: {
           trigger: ".gallery-wrap",
@@ -329,25 +358,17 @@ $(document).ready(function(){
 
         gsap.timeline({
           scrollTrigger: {
-            trigger: "#about",
-            start: "center center",
-            end: "center top",
+            trigger: "#about .img",
+            start: "center bottom",
+            end: "center center",
             scrub: true
           }
         })
-        .from(".ussr",  { x: innerWidth * (-1.4) })
-        .from(".glasses",  { y: innerHeight * 1.4 })
-        .from(".hair", { y: innerHeight * 1.4 })
-        .from(".ak", { x: innerWidth * 1.4 })
-        .from(".cross", { y: innerHeight * 1.4 });
-
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            triger: '#about',
-            start: "center bottom", // the default values
-            // end: "bottom top",
-          }
-        });
+        .from(".ussr",  { x: innerWidth * (-0.5), ease: "expo" })
+      .from(".glasses",  { y: innerHeight * 0.5, ease: "expo" })
+      .from(".hair", { y: innerHeight * (-0.5), ease: "expo" })
+      .from(".ak", { x: innerWidth * 0.5, ease: "expo" })
+      .from(".cross", { y: innerHeight * 0.5, ease: "expo" });
 
         gsap.to(".pGallery", {
           xPercent: -100,
@@ -370,9 +391,16 @@ $(document).ready(function(){
             scrub: true
           }, 
         });
+
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            triger: '#about .img',
+            start: "top center", // the default values
+            // end: "bottom top",
+          }
+        });
   
-        tl.from(".transparent", {y:20, opacity: 0, duration: 0.3})
-          .from(".slide-in", {y:20, opacity: 0, duration: 0.3})
+        // tl.from(".slide-in", {y:20, opacity: 0, duration: 0.3})
         
         asscroll.enable();
     });
@@ -404,6 +432,15 @@ $(document).ready(function(){
 
     $('#menu-trigger').click(function(){
         $(this).find('div').toggleClass('active');
+
+        $('#header-wrap').toggleClass('header-wrap-expand');
+        $('.mobile-menu').toggleClass('menu-open');
+
+        $('html').toggleClass('lock-overflow');
+    });
+
+    $('.mobile-menu .menu-item').click(function(){
+      $('#menu-trigger').find('div').toggleClass('active');
 
         $('#header-wrap').toggleClass('header-wrap-expand');
         $('.mobile-menu').toggleClass('menu-open');
@@ -483,5 +520,4 @@ $('a[href*="#"]')
         });
     }
 })
-
 
