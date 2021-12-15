@@ -1,14 +1,14 @@
 // $('body').addClass('lock-oveflow');
 
 $(window).load(function() {
-  setTimeout(function() {
+  // setTimeout(function() {
     // $('.loader').addClass('fade');
     $('.loader').fadeOut(200);
     $('body').removeClass('lock-oveflow');
     $('main').addClass('dom-loaded');
     $('#header-wrap').addClass('dom-loaded');
 
-  }, 3000);
+  // }, 3000);
 });
 
 
@@ -19,6 +19,24 @@ $(document).ready(function(){
 
     $('.mint').click(function(){
       $(this).find('.btn').text('Date TBA');
+    });
+
+    $('.logo-list .org1').click(function(){
+      $('.org1').toggleClass('org-open');
+
+      $('.org2, .org3').removeClass('org-open');
+    });
+
+    $('.logo-list .org2').click(function(){
+      $('.org2').toggleClass('org-open');
+
+      $('.org1, .org3').removeClass('org-open');
+    });
+
+    $('.logo-list .org3').click(function(){
+      $('.org3').toggleClass('org-open');
+
+      $('.org1, .org2').removeClass('org-open');
     });
     
 
@@ -177,14 +195,35 @@ $(document).ready(function(){
 
       let tl = gsap.timeline({
         scrollTrigger: {
-          triger: '#about',
-          start: "top bottom", // the default values
-          // end: "bottom top",
+          trigger: '#about .transparent',
+          start: "bottom bottom",
         }
       });
+      tl.from(".slide-in", {y:20, opacity: 0, duration: 0.3});
 
-      // tl.from(".transparent", {y:20, opacity: 0, duration: 0.3})
-      //   .from(".slide-in", {y:20, opacity: 0, duration: 0.3})
+      let tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#gallery .transparent',
+          start: "bottom bottom",
+        }
+      });
+      tl2.from(".slide-in2", {y:20, opacity: 0, duration: 0.3});
+
+      let tl3 = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#charity .transparent',
+          start: "bottom bottom",
+        }
+      });
+      tl3.from(".slide-in3", {y:20, opacity: 0, duration: 0.3});
+
+      let tl4 = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#team .transparent',
+          start: "bottom bottom",
+        }
+      });
+      tl4.from(".slide-in4", {y:20, opacity: 0, duration: 0.3});
 
 
       gsap.to(".pGallery", {
@@ -392,15 +431,39 @@ $(document).ready(function(){
           }, 
         });
 
+        
+        
         let tl = gsap.timeline({
           scrollTrigger: {
-            triger: '#about .img',
-            start: "top center", // the default values
-            // end: "bottom top",
+            trigger: '#about .transparent',
+            start: "bottom bottom",
           }
         });
+        tl.from(".slide-in", {y:20, opacity: 0, duration: 0.3});
   
-        // tl.from(".slide-in", {y:20, opacity: 0, duration: 0.3})
+        let tl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#gallery .transparent',
+            start: "bottom bottom",
+          }
+        });
+        tl2.from(".slide-in2", {y:20, opacity: 0, duration: 0.3});
+  
+        let tl3 = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#charity .transparent',
+            start: "bottom bottom",
+          }
+        });
+        tl3.from(".slide-in3", {y:20, opacity: 0, duration: 0.3});
+  
+        let tl4 = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#team .transparent',
+            start: "bottom bottom",
+          }
+        });
+        tl4.from(".slide-in4", {y:20, opacity: 0, duration: 0.3});
         
         asscroll.enable();
     });
@@ -519,5 +582,34 @@ $('a[href*="#"]')
             this.classList.toggle("expanded");
         });
     }
+
+
+    const slider = document.querySelector('.team-wrap');
+    let mouseDown = false;
+    let startX, scrollLeft;
+
+    let startDragging = function (e) {
+      mouseDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    };
+    let stopDragging = function (event) {
+      mouseDown = false;
+    };
+
+    slider.addEventListener('mousemove', (e) => {
+      e.preventDefault();
+      if(!mouseDown) { return; }
+      const x = e.pageX - slider.offsetLeft;
+      const scroll = x - startX;
+      slider.scrollLeft = scrollLeft - scroll;
+    });
+
+    // Add the event listeners
+    slider.addEventListener('mousedown', startDragging, false);
+    slider.addEventListener('mouseup', stopDragging, false);
+    slider.addEventListener('mouseleave', stopDragging, false);
+
+    
 })
 

@@ -134,11 +134,21 @@ dfn {
  * contexts in Firefox 4+, Safari, and Chrome.
  */
 
+ 
+ @font-face {
+  font-family: 'pixel';
+  src: url('pixel.woff2') format('woff2');
+}
+
+
+
 h1 {
-  font-size: 2em;
+  font-size: 2.8em;
   margin: 0.67em 0;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-family: 'pixel', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: normal;
 }
 
 /**
