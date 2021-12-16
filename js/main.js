@@ -45,16 +45,16 @@ $(document).ready(function(){
     const isTouch = 'ontouchstart' in document.documentElement
     
     if (isTouch) {
-      // gsap.to(".pContent", {
-      //   yPercent: -10,
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: "#intro",
-      //     start: "top top", // the default values
-      //     end: "bottom top",
-      //     scrub: true
-      //   }, 
-      // });
+      gsap.to(".pContent", {
+        yPercent: -10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
 
       gsap.to(".pContent2", {
         yPercent: -20,
@@ -68,7 +68,7 @@ $(document).ready(function(){
       });
 
       gsap.to(".pContent3", {
-        yPercent: -20,
+        yPercent: -15,
         ease: "none",
         scrollTrigger: {
           trigger: "#intro",
@@ -100,17 +100,17 @@ $(document).ready(function(){
         }, 
       });
 
-      // gsap.to(".pContentTextDown", {
-      //   yPercent: 10,
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: ".pSection",
-      //     trigger: "#intro",
-      //     start: "top top", // the default values
-      //     end: "bottom top",
-      //     scrub: true
-      //   }, 
-      // });
+      gsap.to(".pContentTextDown", {
+        yPercent: 20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".pSection",
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
 
       // gsap.to(".pVodka", {
       //   yPercent: 2500,
@@ -371,7 +371,7 @@ $(document).ready(function(){
         });
   
         gsap.to(".pContentDown", {
-          yPercent: 15,
+          yPercent: 10,
           ease: "none",
           scrollTrigger: {
             trigger: "#intro",
@@ -501,6 +501,12 @@ $(document).ready(function(){
         tl4.from(".slide-in4", {y:20, opacity: 0, duration: 0.3});
         
         asscroll.enable();
+
+        $('.logo-list, .faq-block').click(function(){
+          setTimeout(function(){
+            asscroll.resize();
+          },500)
+        })
     });
     
   }
@@ -549,41 +555,49 @@ $(document).ready(function(){
  
 
   
-    function getNumber(min, max) {
-        var min = Math.ceil(min);
-        var max = Math.floor(max);
-        var random = "";
+    // function getNumber(min, max) {
+    //     var min = Math.ceil(min);
+    //     var max = Math.floor(max);
+    //     var random = "";
 
-        do {
-            random = Math.floor(Math.random() * (max - min)) + min;
-        } while (random === getNumber.last);
-        getNumber.last = random;
-        return random;
-    }  
+    //     do {
+    //         random = Math.floor(Math.random() * (max - min)) + min;
+    //     } while (random === getNumber.last);
+    //     getNumber.last = random;
+    //     return random;
+    // }  
 
-    let randomx = getNumber(1,2);  
-    let bearimg = "img/bear" + randomx + ".png";
+    // let randomx = getNumber(1,2);  
+    // let bearimg = "img/bear" + randomx + ".png";
 
-    $('.clicker img').attr('src', bearimg);
+    // $('.clicker img').attr('src', bearimg);
 
-    $('.clicker img').click(function() {   
-        let randomx = getNumber(1,2);
-        let bearimg = "img/bear" + randomx + ".png";
+    // $('.clicker img').click(function() {   
+    //     let randomx = getNumber(1,2);
+    //     let bearimg = "img/bear" + randomx + ".png";
 
-        $(this).attr('src', bearimg);
+    //     $(this).attr('src', bearimg);
+    // });
+
+
+
+
+   
+
+    $(function() {
+
+      // you can also use the whole item as a trigger with this: $('.accordion .accordion-item')
+      $('.faq-section-wrap .faq-block').on('click', toggleAccordion);
+    
+      function toggleAccordion(event) {
+        var target = $(event.target).closest('.faq-block');
+    
+        // target.parent('.faq-section-wrap').find('.faq-block').not(target).removeClass('expanded');
+        target.toggleClass('expanded');
+      }
+      
+      
     });
-
-
-
-
-    let item = document.getElementsByClassName("faq-wrap");
-    let i;
-
-    for (i = 0; i < item.length; i++) {
-        item[i].addEventListener("click", function () {
-            this.classList.toggle("expanded");
-        });
-    }
 
 
     const slider = document.querySelector('.team-wrap');

@@ -817,12 +817,12 @@ ul {
 
 @media screen and (min-width: 1023px) {
   #intro, #clouds, #sun, #buildings, #cloud1, #cloud2, #cloud3 {
-    height: 150vh;
+    height: 160vh;
     background-position: center;
   }
 
   #intro .text-wrap {
-    top: -20vh;
+    top: -30vh;
   }
 }
 
@@ -1382,7 +1382,7 @@ main {
 
 footer {
   padding: 40px 20px 40px;
-  background-color: #6e7188;
+  background-color: #1e1320;
   border-bottom: 4px solid #ffffff;
 }
 
@@ -1411,14 +1411,22 @@ footer {
 .section{ position:relative; }
 .section span{ position:absolute; top:-45px;}
 
+.faq-section-wrap {
+  margin-top: 15px;
+}
+
 @media screen and (min-width: 1023px) {
-    
+
+  .faq-section-wrap {
+    margin-top: 25px;
+  }
+
   .section span{
     top:-80px;
   }
   
   footer {
-    padding: 40px 50px 30px;
+    padding: 150px 50px 150px;
   }
   .footer-logo {
     width: 60%;
