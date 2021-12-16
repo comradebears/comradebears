@@ -45,16 +45,16 @@ $(document).ready(function(){
     const isTouch = 'ontouchstart' in document.documentElement
     
     if (isTouch) {
-      gsap.to(".pContent", {
-        yPercent: -10,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#intro",
-          start: "top top", // the default values
-          end: "bottom top",
-          scrub: true
-        }, 
-      });
+      // gsap.to(".pContent", {
+      //   yPercent: -10,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: "#intro",
+      //     start: "top top", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
 
       gsap.to(".pContent2", {
         yPercent: -20,
@@ -100,69 +100,69 @@ $(document).ready(function(){
         }, 
       });
 
-      gsap.to(".pContentTextDown", {
-        yPercent: 10,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".pSection",
-          trigger: "#intro",
-          start: "top top", // the default values
-          end: "bottom top",
-          scrub: true
-        }, 
-      });
+      // gsap.to(".pContentTextDown", {
+      //   yPercent: 10,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: ".pSection",
+      //     trigger: "#intro",
+      //     start: "top top", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
 
-      gsap.to(".pVodka", {
-        yPercent: 2500,
-        xPercent: 20,
-        rotate: 2500,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#intro",
-          start: "top top", // the default values
-          end: "bottom top",
-          scrub: true
-        }, 
-      });
+      // gsap.to(".pVodka", {
+      //   yPercent: 2500,
+      //   xPercent: 20,
+      //   rotate: 2500,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: "#intro",
+      //     start: "top top", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
 
-      gsap.to(".pVodka2", {
-        yPercent: 2000,
-        xPercent: -50,
-        rotate: -2000,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#intro",
-          start: "top top", // the default values
-          end: "bottom top",
-          scrub: true
-        }, 
-      });
+      // gsap.to(".pVodka2", {
+      //   yPercent: 2000,
+      //   xPercent: -50,
+      //   rotate: -2000,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: "#intro",
+      //     start: "top top", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
 
-      gsap.to(".hover-item1", {
-        yPercent: 25,
-        // xPercent: -50,
-        rotate: 10,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#intro",
-          start: "top top", // the default values
-          end: "bottom top",
-          scrub: true
-        }, 
-      });
+      // gsap.to(".hover-item1", {
+      //   yPercent: 25,
+      //   // xPercent: -50,
+      //   rotate: 10,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: "#intro",
+      //     start: "top top", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
 
-      gsap.to(".hover-item2", {
-        yPercent: 50,
-        // xPercent: -50,
-        rotate: 10,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#gallery",
-          start: "top bottom", // the default values
-          end: "bottom top",
-          scrub: true
-        }, 
-      });
+      // gsap.to(".hover-item2", {
+      //   yPercent: 50,
+      //   // xPercent: -50,
+      //   rotate: 10,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: "#gallery",
+      //     start: "top bottom", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
 
       // gsap.to(".hover-item3", {
       //   yPercent: 350,
@@ -227,7 +227,7 @@ $(document).ready(function(){
 
 
       gsap.to(".pGallery", {
-        xPercent: -400,
+        xPercent: -300,
         ease: "none",
         scrollTrigger: {
           trigger: ".gallery-wrap",
@@ -238,7 +238,7 @@ $(document).ready(function(){
       });
 
       gsap.to(".pGalleryReverse", {
-        xPercent: 400,
+        xPercent: 300,
         ease: "none",
         scrollTrigger: {
           trigger: ".gallery-wrap",
@@ -260,7 +260,42 @@ $(document).ready(function(){
       // });
       
 
-      
+//       // Select all links with hashes
+// $('a[href*="#"]')
+// // Remove links that don't actually link to anything
+// .not('[href="#"]')
+// .not('[href="#0"]')
+// .click(function(event) {
+//   // On-page links
+//   if (
+//     location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+//     && 
+//     location.hostname == this.hostname
+//   ) {
+//     // Figure out element to scroll to
+//     var target = $(this.hash);
+//     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+//     // Does a scroll target exist?
+//     if (target.length) {
+//       // Only prevent default if animation is actually gonna happen
+//       event.preventDefault();
+//       $('html, body').animate({
+//         scrollTop: target.offset().top -80
+//       }, 1000, function() {
+//         // Callback after animation
+//         // Must change focus!
+//         var $target = $(target);
+//         $target.focus();
+//         if ($target.is(":focus")) { // Checking if the target was focused
+//           return false;
+//         } else {
+//           $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+//           $target.focus(); // Set focus again
+//         };
+//       });
+//     }
+//   }
+// });   
 
 
       // gsap.to(".transparent", {
@@ -410,7 +445,7 @@ $(document).ready(function(){
       .from(".cross", { y: innerHeight * 0.5, ease: "expo" });
 
         gsap.to(".pGallery", {
-          xPercent: -100,
+          xPercent: -50,
           ease: "none",
           scrollTrigger: {
             trigger: ".gallery-wrap",
@@ -421,7 +456,7 @@ $(document).ready(function(){
         });
   
         gsap.to(".pGalleryReverse", {
-          xPercent: 100,
+          xPercent: 50,
           ease: "none",
           scrollTrigger: {
             trigger: ".gallery-wrap",
@@ -511,42 +546,9 @@ $(document).ready(function(){
         $('html').toggleClass('lock-overflow');
     });
 
-// Select all links with hashes
-$('a[href*="#"]')
-  // Remove links that don't actually link to anything
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-    // On-page links
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
-      location.hostname == this.hostname
-    ) {
-      // Figure out element to scroll to
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      // Does a scroll target exist?
-      if (target.length) {
-        // Only prevent default if animation is actually gonna happen
-        event.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top -80
-        }, 1000, function() {
-          // Callback after animation
-          // Must change focus!
-          var $target = $(target);
-          $target.focus();
-          if ($target.is(":focus")) { // Checking if the target was focused
-            return false;
-          } else {
-            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-            $target.focus(); // Set focus again
-          };
-        });
-      }
-    }
-  });    
+ 
+
+  
     function getNumber(min, max) {
         var min = Math.ceil(min);
         var max = Math.floor(max);
