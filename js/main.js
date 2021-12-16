@@ -44,6 +44,7 @@ $(document).ready(function(){
     
     const isTouch = 'ontouchstart' in document.documentElement
     
+    if (isTouch) {
       // gsap.to(".pContent", {
       //   yPercent: -10,
       //   ease: "none",
@@ -55,38 +56,38 @@ $(document).ready(function(){
       //   }, 
       // });
 
-      gsap.to(".pContent2", {
-        yPercent: -20,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#intro",
-          start: "top top", // the default values
-          end: "bottom top",
-          scrub: true
-        }, 
-      });
+      // gsap.to(".pContent2", {
+      //   yPercent: -20,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: "#intro",
+      //     start: "top top", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
 
-      gsap.to(".pContent3", {
-        yPercent: -20,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#intro",
-          start: "top top", // the default values
-          end: "bottom top",
-          scrub: true
-        }, 
-      });
+      // gsap.to(".pContent3", {
+      //   yPercent: -20,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: "#intro",
+      //     start: "top top", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
 
-      gsap.to(".pContentDown", {
-        yPercent: 15,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#intro",
-          start: "top top", // the default values
-          end: "bottom top",
-          scrub: true
-        }, 
-      });
+      // gsap.to(".pContentDown", {
+      //   yPercent: 15,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: "#intro",
+      //     start: "top top", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
 
       // gsap.to(".pContentDown2", {
       //   yPercent: 10,
@@ -225,27 +226,27 @@ $(document).ready(function(){
       tl4.from(".slide-in4", {y:20, opacity: 0, duration: 0.3});
 
 
-      gsap.to(".pGallery", {
-        xPercent: -300,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".gallery-wrap",
-          start: "top bottom", // the default values
-          end: "bottom top",
-          scrub: true
-        }, 
-      });
+      // gsap.to(".pGallery", {
+      //   xPercent: -300,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: ".gallery-wrap",
+      //     start: "top bottom", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
 
-      gsap.to(".pGalleryReverse", {
-        xPercent: 300,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".gallery-wrap",
-          start: "top bottom", // the default values
-          end: "bottom top",
-          scrub: true
-        }, 
-      });
+      // gsap.to(".pGalleryReverse", {
+      //   xPercent: 300,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: ".gallery-wrap",
+      //     start: "top bottom", // the default values
+      //     end: "bottom top",
+      //     scrub: true
+      //   }, 
+      // });
 
       // gsap.to(".pGallery2", {
       //   xPercent: -600,
@@ -307,6 +308,202 @@ $(document).ready(function(){
       //     scrub: true
       //   }, 
       // });
+
+
+    } else {
+
+      const asscroll = new ASScroll({
+        disableRaf: true
+    });
+    
+    gsap.ticker.add(asscroll.update)
+    
+    ScrollTrigger.defaults({
+        scroller: asscroll.containerElement
+    })
+    
+    ScrollTrigger.scrollerProxy(asscroll.containerElement, {
+        scrollTop(value) {
+            return arguments.length ? asscroll.currentPos = value : asscroll.currentPos;
+        },
+        getBoundingClientRect() {
+            return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight }
+        }
+    });
+    
+    asscroll.on("update", ScrollTrigger.update);
+    ScrollTrigger.addEventListener("refresh", asscroll.resize);
+    
+    window.addEventListener("load", () => {
+        const totalScroll = asscroll.containerElement.scrollHeight - innerHeight;
+    
+        gsap.to(".pContent", {
+          yPercent: -10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pContent2", {
+          yPercent: -20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pContent3", {
+          yPercent: -25,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pContentDown", {
+          yPercent: 15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pContentDown2", {
+          yPercent: 10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pContentTextDown", {
+          yPercent: 10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".pSection",
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pVodka", {
+          yPercent: 2500,
+          xPercent: 20,
+          rotate: 2500,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pVodka2", {
+          yPercent: 2000,
+          xPercent: -50,
+          rotate: -2000,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#intro",
+            start: "top top", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: "#about .img",
+            start: "center bottom",
+            end: "center center",
+            scrub: true
+          }
+        })
+        .from(".ussr",  { x: innerWidth * (-0.5), ease: "expo" })
+      .from(".glasses",  { y: innerHeight * 0.5, ease: "expo" })
+      .from(".hair", { y: innerHeight * (-0.5), ease: "expo" })
+      .from(".ak", { x: innerWidth * 0.5, ease: "expo" })
+      .from(".cross", { y: innerHeight * 0.5, ease: "expo" });
+
+        gsap.to(".pGallery", {
+          xPercent: -50,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".gallery-wrap",
+            start: "top bottom", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+  
+        gsap.to(".pGalleryReverse", {
+          xPercent: 50,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".gallery-wrap",
+            start: "top bottom", // the default values
+            end: "bottom top",
+            scrub: true
+          }, 
+        });
+
+        
+        
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#about .transparent',
+            start: "bottom bottom",
+          }
+        });
+        tl.from(".slide-in", {y:20, opacity: 0, duration: 0.3});
+  
+        let tl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#gallery .transparent',
+            start: "bottom bottom",
+          }
+        });
+        tl2.from(".slide-in2", {y:20, opacity: 0, duration: 0.3});
+  
+        let tl3 = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#charity .transparent',
+            start: "bottom bottom",
+          }
+        });
+        tl3.from(".slide-in3", {y:20, opacity: 0, duration: 0.3});
+  
+        let tl4 = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#team .transparent',
+            start: "bottom bottom",
+          }
+        });
+        tl4.from(".slide-in4", {y:20, opacity: 0, duration: 0.3});
+        
+        asscroll.enable();
+    });
+    
+  }
 
 
 
