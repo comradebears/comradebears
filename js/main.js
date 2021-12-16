@@ -44,7 +44,6 @@ $(document).ready(function(){
     
     const isTouch = 'ontouchstart' in document.documentElement
     
-    
       // gsap.to(".pContent", {
       //   yPercent: -10,
       //   ease: "none",
@@ -308,11 +307,6 @@ $(document).ready(function(){
       //     scrub: true
       //   }, 
       // });
-
-
-    
-    
-  }
 
 
 
