@@ -56,49 +56,49 @@ $(document).ready(function(){
       //   }, 
       // });
 
-      // gsap.to(".pContent2", {
-      //   yPercent: -20,
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: "#intro",
-      //     start: "top top", // the default values
-      //     end: "bottom top",
-      //     scrub: true
-      //   }, 
-      // });
+      gsap.to(".pContent2", {
+        yPercent: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
 
-      // gsap.to(".pContent3", {
-      //   yPercent: -20,
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: "#intro",
-      //     start: "top top", // the default values
-      //     end: "bottom top",
-      //     scrub: true
-      //   }, 
-      // });
+      gsap.to(".pContent3", {
+        yPercent: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
 
-      // gsap.to(".pContentDown", {
-      //   yPercent: 15,
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: "#intro",
-      //     start: "top top", // the default values
-      //     end: "bottom top",
-      //     scrub: true
-      //   }, 
-      // });
+      gsap.to(".pContentDown", {
+        yPercent: 15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
 
-      // gsap.to(".pContentDown2", {
-      //   yPercent: 10,
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: "#intro",
-      //     start: "top top", // the default values
-      //     end: "bottom top",
-      //     scrub: true
-      //   }, 
-      // });
+      gsap.to(".pContentDown2", {
+        yPercent: 10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#intro",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
 
       // gsap.to(".pContentTextDown", {
       //   yPercent: 10,
@@ -226,27 +226,27 @@ $(document).ready(function(){
       tl4.from(".slide-in4", {y:20, opacity: 0, duration: 0.3});
 
 
-      // gsap.to(".pGallery", {
-      //   xPercent: -300,
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: ".gallery-wrap",
-      //     start: "top bottom", // the default values
-      //     end: "bottom top",
-      //     scrub: true
-      //   }, 
-      // });
+      gsap.to(".pGallery", {
+        xPercent: -300,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".gallery-wrap",
+          start: "top bottom", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
 
-      // gsap.to(".pGalleryReverse", {
-      //   xPercent: 300,
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: ".gallery-wrap",
-      //     start: "top bottom", // the default values
-      //     end: "bottom top",
-      //     scrub: true
-      //   }, 
-      // });
+      gsap.to(".pGalleryReverse", {
+        xPercent: 300,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".gallery-wrap",
+          start: "top bottom", // the default values
+          end: "bottom top",
+          scrub: true
+        }, 
+      });
 
       // gsap.to(".pGallery2", {
       //   xPercent: -600,
@@ -404,31 +404,31 @@ $(document).ready(function(){
           }, 
         });
   
-        gsap.to(".pVodka", {
-          yPercent: 2500,
-          xPercent: 20,
-          rotate: 2500,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "#intro",
-            start: "top top", // the default values
-            end: "bottom top",
-            scrub: true
-          }, 
-        });
+        // gsap.to(".pVodka", {
+        //   yPercent: 2500,
+        //   xPercent: 20,
+        //   rotate: 2500,
+        //   ease: "none",
+        //   scrollTrigger: {
+        //     trigger: "#intro",
+        //     start: "top top", // the default values
+        //     end: "bottom top",
+        //     scrub: true
+        //   }, 
+        // });
   
-        gsap.to(".pVodka2", {
-          yPercent: 2000,
-          xPercent: -50,
-          rotate: -2000,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "#intro",
-            start: "top top", // the default values
-            end: "bottom top",
-            scrub: true
-          }, 
-        });
+        // gsap.to(".pVodka2", {
+        //   yPercent: 2000,
+        //   xPercent: -50,
+        //   rotate: -2000,
+        //   ease: "none",
+        //   scrollTrigger: {
+        //     trigger: "#intro",
+        //     start: "top top", // the default values
+        //     end: "bottom top",
+        //     scrub: true
+        //   }, 
+        // });
 
         gsap.timeline({
           scrollTrigger: {
