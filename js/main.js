@@ -17,9 +17,9 @@ $(document).ready(function(){
 
     // parallaxImgScroll();
 
-    $('.mint').click(function(){
-      $(this).find('.btn').text('Date TBA');
-    });
+    // $('.mint').click(function(){
+    //   $(this).find('.btn').text('Date TBA');
+    // });
 
     $('.logo-list .org1').click(function(){
       $('.org1').toggleClass('org-open');
@@ -45,6 +45,7 @@ $(document).ready(function(){
     const isTouch = 'ontouchstart' in document.documentElement
     
     if (isTouch) {
+
       gsap.to(".pContent", {
         yPercent: -10,
         ease: "none",
