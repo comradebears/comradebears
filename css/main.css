@@ -986,7 +986,7 @@ background-image: url('back3.png');
   background: #6e7188;
 }
 
-#charity .section-wrap {
+#membership .section-wrap, #charity .section-wrap {
   flex-direction: column;
 }
 
@@ -994,13 +994,49 @@ background-image: url('back3.png');
   display: block;
 }
 
-#team .section-wrap .text-wrap {
+#membership .section-wrap .text-wrap, #team .section-wrap .text-wrap {
   width: 100%;
 }
 
 #charity .section-wrap .text-wrap {
   width: 100%;
 }
+
+.half {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.half p {
+  width: 50%;
+  margin-left: 40px;
+}
+
+.half img {
+  width: 50%;
+  position: relative;
+    overflow: hidden;
+    box-shadow: 0px 6px 36px #000;
+    margin-right: 40px;
+}
+
+@media screen and (max-width: 1023px) {
+  .half {
+    flex-direction: column;
+    margin-top: 0px;
+  }
+
+  .half img, .half p {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 40px;
+  } 
+}
+
+
+
 
 .logo-list {
  display: flex;
@@ -1010,7 +1046,7 @@ background-image: url('back3.png');
  margin-bottom: 10px;
  align-items: center;
  text-align: center;
- color: black;
+ /* color: black; */
  font-weight: 600;
 }
 
