@@ -998,6 +998,10 @@ background-image: url('back3.png');
   width: 100%;
 }
 
+#membership b {
+  color: #fff !important;
+}
+
 #charity .section-wrap .text-wrap {
   width: 100%;
 }
